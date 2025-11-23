@@ -1,4 +1,5 @@
 "use client";
+import { ReceiptTurkishLiraIcon } from "lucide-react";
 import React from "react";
 
 type PixelatedCanvasProps = {
@@ -202,7 +203,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
         const rr = data[i];
         const gg = data[i + 1];
         const bb = data[i + 2];
-        return 0.2126 * rr + 0.7152 * gg + 0.0722 * bb;
+        return 0.2126 * rr! + 0.7152 * gg! + 0.0722 * bb!;
       };
 
       const hash2D = (ix: number, iy: number) => {
@@ -227,9 +228,9 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
           if (c.startsWith("#")) {
             const hex = c.slice(1);
             if (hex.length === 3) {
-              const r = parseInt(hex[0] + hex[0], 16);
-              const g = parseInt(hex[1] + hex[1], 16);
-              const b = parseInt(hex[2] + hex[2], 16);
+              const r = parseInt(hex[0] + hex[0]!, 16);
+              const g = parseInt(hex[1] + hex[1]!, 16);
+              const b = parseInt(hex[2] + hex[2]!, 16);
               return [r, g, b];
             }
             const r = parseInt(hex.slice(0, 2), 16);
@@ -239,7 +240,7 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
           }
           const m = c.match(/rgb\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)/i);
           if (m)
-            return [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)];
+            return [parseInt(m[1]!, 10), parseInt(m[2]!, 10), parseInt(m[3]!, 10)];
           return null;
         };
         tintRGB = parse(tintColor) as any;
@@ -258,10 +259,10 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
           let a = 0;
           if (!sampleAverage) {
             const idx = cy * stride + cx * 4;
-            r = data[idx];
-            g = data[idx + 1];
-            b = data[idx + 2];
-            a = data[idx + 3] / 255;
+            r = data[idx]!;
+            g = data[idx + 1]!;
+            b = data[idx + 2]!;
+            a = data[idx + 3]! / 255;
           } else {
             let count = 0;
             for (let oy = -1; oy <= 1; oy++) {
@@ -269,10 +270,10 @@ export const PixelatedCanvas: React.FC<PixelatedCanvasProps> = ({
                 const sx = Math.max(0, Math.min(offscreen.width - 1, cx + ox));
                 const sy = Math.max(0, Math.min(offscreen.height - 1, cy + oy));
                 const sIdx = sy * stride + sx * 4;
-                r += data[sIdx];
-                g += data[sIdx + 1];
-                b += data[sIdx + 2];
-                a += data[sIdx + 3] / 255;
+                r += data[sIdx]!;
+                g += data[sIdx + 1]!;
+                b += data[sIdx + 2]!;
+                a += data[sIdx + 3]! / 255;
                 count++;
               }
             }
