@@ -1,4 +1,3 @@
-import { PixelatedCanvasDemo } from './PixelatedCanvas';
 import { TextAnimate } from './ui/text-animate'
 
 interface IExperience {
@@ -22,23 +21,20 @@ function BlockExp({role, company, time, duration}: IExperience) {
         </div>
     )
 }
-function Experience() {
+function Education() {
   return (
     <div className="md:flex">
         <div className="flex flex-col w-full mb-[3vw] font-semibold pl-[4vw] pt-[1vw] pr-[4vw]  pb-[1vw] md:w-[full] md:font-medium rounded-md md:mt-[0.5vw] md:mb-[1vw] md:pl-[2vw] md:pr-[2vw] md:pt-[0.5vw] md:pb-[1.5vw] bg-black text-white">
-            <TextAnimate animation='slideLeft' duration={0.5} className="text-[8vw] md:text-[3vw]">Experience</TextAnimate>
+            <TextAnimate animation='slideLeft' duration={0.5} className="text-[8vw] md:text-[3vw]">Education</TextAnimate>
             <div className="mt-[1vw] md:mt-[0vw]">
                 <BlockExp role='Software Developer Intern' company='NComputing India Pvt Ltd, Pune' time='6 Months' duration='Jul 25 - Dec 25' />
                 <BlockExp role='Advance AI Instructor' company='RanchoLabs, IIT-Delhi (Remote)' time='2 Months' duration='Jun 25 - Jul 25' />
                 <BlockExp role='Software Developer' company='Innovators Hub, MITWPU-Pune' time='12 Months' duration='Aug 24 - Aug 25' />
             </div>
         </div>
-        <div className="hidden mb-[1vw] md:flex md:justify-center md:w-[50%] ">
-            <PixelatedCanvasDemo />
-        </div>
     </div>
   )
 }
 
 
-export default Experience
+export default Education;

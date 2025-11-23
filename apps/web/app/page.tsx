@@ -1,29 +1,40 @@
+"use client";
 import About from "@/components/About";
+import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import { Nav } from "@/components/Navbar";
-import Projects from "@/components/Projects";
+import BlockExp from "@/components/Projects";
+import Publications from "@/components/Publications";
+
 import { MarqueeDemo } from "@/components/Reviews";
+import { Button } from "@/components/ui/button";
+import Face from "@/components/ui/face";
 import { TextAnimate } from "@/components/ui/text-animate";
 
 export default function Home() {
   return (
-    <div className="flex md:m-[1vw] flex-col md:flex justify-center md:justify-start">
+    <div className="flex flex-col m-[3vw] md:m-[2vw] flex-col md:flex justify-center md:justify-start">
       <Nav />
-      <div className="flex md:items-center md:justify-between md:text-[3vw] md:font-medium md:mr-[10vw]">
-        <img className="rounded-sm mt-[47vw] md:mt-0 object-cover md:aspect-[3/4] md:w-[40vw]" src="/main.jpeg" alt="" />
-        <div className="md:flex md:flex-col md:w-[46vw]">
-          <TextAnimate animation="slideLeft" duration={0.5}>I'm a Fullstack Software Developer</TextAnimate>
-          <div className="md:text-[1vw] md:text-center md:mt-[0.5vw] md:text-[#373737]">
+      <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between md:text-[3vw] md:font-medium md:mr-[10vw]">
+        <Face />
+        <div className="mt-[30vw] md:mt-[0vw] md:flex md:flex-col md:w-[46vw]">
+          <TextAnimate className="text-center text-[5vw] font-medium mt-[2vw] md:mt-[0vw] md:text-[3vw]" animation="slideLeft" duration={0.5}>I'm a Fullstack Software Developer</TextAnimate>
+          <div className="text-center md:text-[1vw] md:text-center md:mt-[0.5vw] md:text-[#373737]">
             <TextAnimate animation="slideLeft" duration={0.5}>I build and ship end-to-end full-stack solutions with super-speed and rock-solid robustness.</TextAnimate>
-            <div className="md:mt-[1vw] md:text-left">
+            <Button className="md:hidden mt-[3vw] rounded-lg">Download Resume</Button>
+            <div className="hidden md:block md:mt-[1vw] md:text-left">
               <MarqueeDemo />
             </div>
           </div>
         </div>
       </div>
-       <About />
-       <Experience />
-       <Projects />
+      <div className="md:flex md:flex-col md:justify-center md:gap-[0.5vw] md:mt-[0.5vw]">
+        <About />
+        <Experience />
+        <BlockExp />
+        <Publications />
+        <Education />
+      </div>
     </div>
   );
 }
