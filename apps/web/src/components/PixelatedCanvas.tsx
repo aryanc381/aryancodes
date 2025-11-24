@@ -23,7 +23,7 @@ export function PixelatedCanvasDemo() {
         sampleAverage
         tintColor="#000000ff"
         tintStrength={0.2}
-        className="rounded-md"
+        className="rounded-md cursor-pointer"
       />
     </div>
   );

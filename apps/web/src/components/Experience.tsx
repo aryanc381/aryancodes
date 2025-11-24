@@ -33,7 +33,7 @@ function Experience() {
                 <BlockExp role='Software Developer' company='Innovators Hub, MITWPU-Pune' time='12 Months' duration='Aug 24 - Aug 25' />
             </div>
         </div>
-        <div className="hidden mb-[1vw] md:flex md:justify-center md:w-[50%] ">
+        <div className="hidden mb-[1vw] md:flex md:justify-center md:w-[40%] md:mr-[-3vw]">
             <PixelatedCanvasDemo />
         </div>
     </div>
