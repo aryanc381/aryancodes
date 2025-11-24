@@ -5,10 +5,10 @@ export function PixelatedCanvasDemo() {
   return (
     <div className="flex pr-[2vw] p-[1vw] items-center">
       <PixelatedCanvas
-        src="https://assets.aceternity.com/manu-red.png"
+        src="/image2.png"
         width={450}
         height={450}
-        cellSize={3}
+        cellSize={1}
         dotScale={0.9}
         shape="square"
         backgroundColor="#ffffffff"
