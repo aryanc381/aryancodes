@@ -43,9 +43,9 @@ function Landing() {
             </div>
             <div className="absolute bottom-[1vw] flex gap-[1.25vw] md:gap-[0.35vw]">
                 <p>Built by</p>
-                <a href="https://www.linkedin.com/in/aryanc381" target="_blank" className="underline">@aryanc381</a>
-                <p>and</p>
                 <a href="https://www.linkedin.com/in/manasvi-nawal/" target="_blank" className="underline">@manasvi-nawal</a>
+                <p>and</p>
+                <a href="https://www.linkedin.com/in/aryanc381" target="_blank" className="underline">@aryanc381</a>
             </div>
         </div>
     )
