@@ -18,7 +18,7 @@ function Publications() {
           </div>
 
           <div className="snap-start min-w-[88vw] md:min-w-0">
-            <ThreeDCardDemo title="KahaaniAI" description="An Agentic-AI–Driven Conversational Guidance System for Indian Cultural Monuments." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://www.google.com" />
+            <ThreeDCardDemo title="KahaaniAI" description="An Agentic-AI driven Conversational Guidance System for Indian Cultural Monuments." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://www.google.com" />
           </div>
         </div>
         <div className="flex justify-end md:hidden mb-[4vw]">
