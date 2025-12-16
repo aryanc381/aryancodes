@@ -103,7 +103,7 @@ export default function Home() {
         </div>
       </div>
       <div className="md:flex md:flex-col md:justify-center md:gap-[0.5vw] md:mt-[0.5vw]">
-        <About description="Full-stack engineer focused on building robust, scalable, cloud-native systems, end to end. Growing up in an entrepreneurial, leadership-driven environment taught me to take responsibility and own what I build from a young age. I move fast while keeping strong engineering discipline, clear architecture and efficient code. Driven to create high-performance, reliable solutions that solve real problems, drive internal team efficiency and revenue." />
+        <About description="Full-stack engineer building scalable, cloud-native systems end to end. I move fast with strong software engineering discipline, clear architecture, and ownership, focused on creating reliable, high-impact solutions that solve real problems and drive revenue." />
         <Experience />
         <BlockExp />
         <Publications />
