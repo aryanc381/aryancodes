@@ -13,14 +13,19 @@ function StackAch() {
 function Achievements() {
   return (
     <div className="md:flex md:flex-col md:items-center gap-[2vw] w-[50%] md:mt-[1vw] md:mr-[3vw]">
-      <p className="md:text-black md:text-[3vw] md:font-medium md:mb-[1vw]">Achievements</p>
+      <p className="md:text-black md:text-[3vw] md:font-medium md:mb-[5vw]">Achievements</p>
 
       <div className="ml-[-30vw]">
         <CardStack
           items={[
-            { id: 1, title: "Stanford 6 Core Specialization Course", image: "/certificates/stfl.jpg" },
-            { id: 2, title: "Project Two", image: "/certificates/stfl.jpg" },
-            { id: 3, title: "Project Three", image: "/certificates/stfl.jpg" },
+            { id: 1, title: "Improving Deep Neural Networks: Hyperparameter Tuning, Redularization & Optimization", image: "/certificates/cert1.jpg" },
+            { id: 2, title: "Structuring ML Projects", image: "/certificates/cert2.png" },
+            { id: 3, title: "Neural Networks & Deep Learning", image: "/certificates/cert4.png" },
+            { id: 4, title: "Supervised ML: Regression & Classification", image: "/certificates/cert5.png" },
+            { id: 5, title: "Full Stack Web Development @IIT-JODHPUR Offline", image: "/certificates/cert6.png" },
+            { id: 6, title: "C++ Programming: From Beginner to Beyond", image: "/certificates/cert7.png" },
+            { id: 7, title: "MATLAB OnRamp", image: "/certificates/cert8.png" },
+            { id: 8, title: "100xDev Web Development", image: "/certificates/cert9.png" },
           ]}
         />
       </div>

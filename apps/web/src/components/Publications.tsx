@@ -14,11 +14,11 @@ function Publications() {
           </div>
 
           <div className="snap-start min-w-[88vw] md:min-w-0">
-            <ThreeDCardDemo title="AML-RTMCS" description="An Agentic Memory Layer for Intelligent Real-Time Messaging Communication System." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://www.google.com" />
+            <ThreeDCardDemo title="Second Brain" description="An Agentic-AI driven Memory Layer for Intelligent Real-Time Messaging Communication System for SMBs." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://www.google.com" />
           </div>
 
           <div className="snap-start min-w-[88vw] md:min-w-0">
-            <ThreeDCardDemo title="KahaaniAI" description="An Agentic-AI driven Conversational Guidance System for Indian Cultural Monuments." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://www.google.com" />
+            <ThreeDCardDemo title="KahaaniAI" description="An Interactive Agentic-AI driven Conversational Guidance Platform for Indian Monuments using a Fullstack AI Approach." image="/papers/rp3.jpg" buttonText="See Paper" buttonLink="https://www.google.com" />
           </div>
         </div>
         <div className="flex justify-end md:hidden mb-[4vw]">

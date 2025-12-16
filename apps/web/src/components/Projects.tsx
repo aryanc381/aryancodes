@@ -121,28 +121,28 @@ function Projects() {
 
         <BlockExp 
           role="KahaaniAI - A Conversational Tour-Guide Platform." 
-          company="React, TypeScript, NodeJS, Next.js, MongoDB, AWS-S3, AWS-EC2, AWS-Cloudfront, Mongoose, JWT, Cookies, " 
+          company="React, TypeScript, AWS-EC2, AWS-Cloudfront, AWS-S3, NodeJS, Next.js, MongoDB, Express, JWT, Docker" 
           github="https://google.com" 
           live="Jul 25 - Dec 25" 
         />
 
         <BlockExp 
-          role="Sockify - Realtime Chat App with Memory Layer." 
-          company="React, Node.js, Socket.io, Redis, WebSockets" 
+          role="Sockify - Realtime Chat App with Memory Layer for Early-stage founders." 
+          company="React, Node.js, Redis, WebSockets, Next.js, TypeScript, Postgres, Prisma, Docker, Cookies, Express, Langchain" 
           github="2 Months" 
           live="Jun 25 - Jul 25" 
         />
 
         <BlockExp 
-          role="CloudBridge - Microservices Application to deploy Github Repositories." 
-          company="Docker, Kubernetes, Node.js, Express, MongoDB, GitHub-API" 
+          role="CloudBridge - Microservices Application to deploy Github Repositories for SMBs." 
+          company="React, Node.js, Redis, WebSockets, Next.js, TypeScript, Postgres, Prisma, Docker, Cookies, Express, CI/CD" 
           github="12 Months" 
           live="Aug 24 - Aug 25" 
         />
 
         <BlockExp 
-          role="Autom8X - A Visual No-code editor for making complex automations" 
-          company="React, Zustand, Node.js, MongoDB, Cloudflare-Workers" 
+          role="WebSmith - Multiagent orchestrated website builder for SMBs." 
+          company="React, Zustand, Node.js, MongoDB, Next.js, Typescript, Langchain, Gemini API, Express, Flask, Python" 
           github="12 Months" 
           live="Aug 24 - Aug 25" 
         />

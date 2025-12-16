@@ -23,6 +23,12 @@ const reviews = [
     img: "/aman.png",
   },
   {
+    name: "Aditya Yenpure",
+    username: "Capstone Member @MIT-Pune",
+    body: "Aryan is a dependable, proactive teammate who takes ownership and solves problems end to end. Crazy guy to work with.",
+    img: "/yenpure.png",
+  },
+  {
     name: "Dr. Deepa Nath",
     username: "Assistant Professor, MIT-Pune",
     body: "Aryan is responsible and adapts well to fast-paced technical environments where responsibility and execution are essential.",
@@ -39,6 +45,12 @@ const reviews = [
     username: "Rancho-Labs @IIT-Delhi",
     body: "Aryan performed exceptionally during his internship and his ability to simplify advance topics through hands-on projects was commendable.",
     img: "/aashwin.png",
+  },
+  {
+    name: "Aditya Yenpure",
+    username: "Capstone Member @MIT-Pune",
+    body: "Aryan is a dependable, proactive teammate who takes ownership and solves problems end to end. Crazy guy to work with.",
+    img: "/yenpure.png",
   },
 ]
 
