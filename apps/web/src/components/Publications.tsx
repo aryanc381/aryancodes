@@ -10,7 +10,7 @@ function Publications() {
         <div className="flex gap-[2vw] mt-[-17vw] md:mt-[-4vw] overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-[4vw] md:pb-0">
           
           <div className="snap-start min-w-[88vw] md:min-w-0">
-            <ThreeDCardDemo title="From Signs to Speech" description="An End-to-End Conversational Platform for Deaf and Mute Individuals Using GRU and LLM Integration." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://www.google.com" />
+            <ThreeDCardDemo title="From Signs to Speech" description="An End-to-End Conversational Platform for Deaf and Mute Individuals Using GRU and LLM Integration." image="/papers/rp1.png" buttonText="See Paper" buttonLink="https://drive.google.com/file/d/1fDU_ogG9LeKhFRyOxxKOTr_Vxsfm5L4B/view?usp=sharing" />
           </div>
 
           <div className="snap-start min-w-[88vw] md:min-w-0">
@@ -18,7 +18,7 @@ function Publications() {
           </div>
 
           <div className="snap-start min-w-[88vw] md:min-w-0">
-            <ThreeDCardDemo title="KahaaniAI" description="An Interactive Agentic-AI driven Conversational Guidance Platform for Indian Monuments using a Fullstack AI Approach." image="/papers/rp3.jpg" buttonText="See Paper" buttonLink="https://www.google.com" />
+            <ThreeDCardDemo title="KahaaniAI" description="An Interactive Agentic-AI driven Conversational Guidance Platform for Indian Monuments using a Fullstack AI Approach." image="/papers/rp3.jpg" buttonText="See Paper" buttonLink="https://drive.google.com/file/d/1z6ZOfyLNwmwROqBgDKmZ0wUQqr-XTtzB/view?usp=sharing" />
           </div>
         </div>
         <div className="flex justify-end md:hidden mb-[4vw]">

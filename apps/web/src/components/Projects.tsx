@@ -122,29 +122,29 @@ function Projects() {
         <BlockExp 
           role="KahaaniAI - A Conversational Tour-Guide Platform." 
           company="React, TypeScript, AWS-EC2, AWS-Cloudfront, AWS-S3, NodeJS, Next.js, MongoDB, Express, JWT, Docker" 
-          github="https://google.com" 
-          live="Jul 25 - Dec 25" 
+          github="https://github.com/aryanc381/kahaani-ai-v3" 
+          live="https://kahaani.site" 
         />
 
         <BlockExp 
           role="Sockify - Realtime Chat App with Memory Layer for Early-stage founders." 
           company="React, Node.js, Redis, WebSockets, Next.js, TypeScript, Postgres, Prisma, Docker, Cookies, Express, Langchain" 
-          github="2 Months" 
-          live="Jun 25 - Jul 25" 
+          github="https://github.com/aryanc381/aryancodes/tree/main/apps/sockify" 
+          live="https://sockify.aryancodes.dev" 
         />
 
         <BlockExp 
           role="CloudBridge - Microservices Application to deploy Github Repositories for SMBs." 
           company="React, Node.js, Redis, WebSockets, Next.js, TypeScript, Postgres, Prisma, Docker, Cookies, Express, CI/CD" 
-          github="12 Months" 
-          live="Aug 24 - Aug 25" 
+          github="https://github.com/aryanc381/cloud-bridge" 
+          live="https://cloudbridge.aryancodes.dev" 
         />
 
         <BlockExp 
           role="WebSmith - Multiagent orchestrated website builder for SMBs." 
           company="React, Zustand, Node.js, MongoDB, Next.js, Typescript, Langchain, Gemini API, Express, Flask, Python" 
-          github="12 Months" 
-          live="Aug 24 - Aug 25" 
+          github="https://github.com/aryanc381/aryancodes/tree/main/apps/web-smith" 
+          live="https://websmith.aryancodes.dev" 
         />
       </div>
     </div>
