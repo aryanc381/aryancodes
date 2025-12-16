@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from 'react-icons/go';
 import './CardNav.css';
+import Link from 'next/link';
 
 type CardNavLink = {
   label: string;
@@ -181,7 +182,7 @@ const CardNav: React.FC<CardNavProps> = ({
             <p>{logo}</p>
           </div>
 
-          <button type="button" className="bg-black text-white cursor-pointer rounded-md hidden md:flex md:pl-[1vw] md:pr-[1vw] md:p-[0.5vw]">Resume</button>
+          <button type="button" className="bg-black text-white cursor-pointer rounded-md hidden md:flex md:pl-[1vw] md:pr-[1vw] md:p-[0.5vw]"><Link href={'https://drive.google.com/file/d/1Elx_be0koRKcS3ZPFe4PRveF-erzb5na/view?usp=sharing'} target='_blank'>Resume</Link></button>
         </div>
         <div className="card-nav-content" aria-hidden={!isExpanded}>
           {(items || []).map((item, idx) => (

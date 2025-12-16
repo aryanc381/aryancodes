@@ -26,6 +26,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -66,7 +67,7 @@ export default function Home() {
           <div className="flex flex-col justify-center md:text-[1vw] md:text-center md:mt-[0.5vw] md:text-[#373737]">
             <TextAnimate className="text-center" animation="blurIn" duration={0.5}>I build and ship end-to-end full-stack solutions with super-speed and rock-solid robustness.</TextAnimate>
             <div className="flex justify-center gap-[2vw] md:hidden">
-              <Button className="md:hidden mt-[3vw] rounded-lg">Download Resume</Button>
+              <Button className="md:hidden mt-[3vw] rounded-lg"><Link href={'https://drive.google.com/file/d/1Elx_be0koRKcS3ZPFe4PRveF-erzb5na/view?usp=sharing'} target="_blank">Download Resume</Link></Button>
               <Drawer>
                 <DrawerTrigger>
                   <div className="">
@@ -102,7 +103,7 @@ export default function Home() {
         </div>
       </div>
       <div className="md:flex md:flex-col md:justify-center md:gap-[0.5vw] md:mt-[0.5vw]">
-        <About description="Full-stack engineer focused on building robust, scalable, cloud-native systems, end to end. Growing up in an entrepreneurial, leadership-driven environment taught me to take responsibility and own what I build from a young age. I move fast while keeping strong engineering discipline, clear architecture and efficient code. Driven to create high-performance, reliable solutions that solve real problems." />
+        <About description="Full-stack engineer focused on building robust, scalable, cloud-native systems, end to end. Growing up in an entrepreneurial, leadership-driven environment taught me to take responsibility and own what I build from a young age. I move fast while keeping strong engineering discipline, clear architecture and efficient code. Driven to create high-performance, reliable solutions that solve real problems, drive internal team efficiency and revenue." />
         <Experience />
         <BlockExp />
         <Publications />

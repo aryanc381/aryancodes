@@ -120,8 +120,8 @@ function Projects() {
         </TextAnimate>
 
         <BlockExp 
-          role="KahaaniAI - A Conversational Tour Platform." 
-          company="React, TypeScript, NodeJS, MongoDB, AWS-S3, AWS-EC2, AWS-Cloudfront" 
+          role="KahaaniAI - A Conversational Tour-Guide Platform." 
+          company="React, TypeScript, NodeJS, Next.js, MongoDB, AWS-S3, AWS-EC2, AWS-Cloudfront, Mongoose, JWT, Cookies, " 
           github="https://google.com" 
           live="Jul 25 - Dec 25" 
         />
