@@ -17,10 +17,10 @@ const reviews = [
     img: "/manisha.png",
   },
   {
-    name: "Aashwin Kumar",
+    name: "Aman Kumar",
     username: "Rancho-Labs @IIT-Delhi",
     body: "Aryan performed exceptionally during his internship and his ability to simplify advance topics through hands-on projects was commendable.",
-    img: "/aashwin.png",
+    img: "/aman.png",
   },
   {
     name: "Dr. Deepa Nath",
