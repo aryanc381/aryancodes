@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken';
 import { prisma } from '../../lib/prisma.js';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+
 
 dotenv.config();
 

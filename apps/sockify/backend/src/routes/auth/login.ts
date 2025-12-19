@@ -5,10 +5,10 @@ import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import cookieParser from 'cookie-parser';
 
-
 dotenv.config();
 
 const router = express.Router();
+router.use(cookieParser());
 
 const loginBody = zod.object({
     email: zod.email(),
