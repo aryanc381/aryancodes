@@ -47,7 +47,7 @@ router.post('/signup', async (req, res) => {
         }
     });
 
-    res.cookie("access_token", token );
+    res.cookie("access_token", token, { httpOnly: true, sameSite: 'lax', secure: false });
 
     return res.json({
         status: 201,

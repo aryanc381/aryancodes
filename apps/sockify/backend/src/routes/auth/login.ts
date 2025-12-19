@@ -29,13 +29,20 @@ router.post('/login', async (req, res) => {
         select: { token: true, password: true }
     });
 
+    if(!existing_user) {
+        return res.json({
+            status: 404,
+            msg: 'User not found in Sockify-DB.'
+        });
+    }
+
     const is_valid = await bcrypt.compare(password, existing_user?.password!);
 
     if(!is_valid) {
         return res.json({ status: 405, msg: 'Invalid Password.'});
     }
 
-    res.cookie("access_token", existing_user?.token);
+    res.cookie("access_token", existing_user?.token, { httpOnly: true, sameSite: 'lax', secure: false });
     
     return res.json({
         status: 201,

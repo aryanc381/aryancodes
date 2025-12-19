@@ -14,12 +14,11 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
-
-interface SignupResponse {
+interface LoginResponse {
     status: number,
     msg: string;
     name: string;
@@ -27,25 +26,54 @@ interface SignupResponse {
     token: string;
 }
 
-export default function Signup() {
+interface AutoLoginResponse {
+    email?: string;
+    status: number;
+    msg: string;
+
+}
+
+export default function Login() {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [name, setName] = useState('');
     const router = useRouter();
 
-    const signUpHandler = async() => {
-        if(!name || !email || !pass) {
+    useEffect(() => {
+        const autoLogin = async() => {
+            try {
+                await toast.promise(
+                    async() => {
+                        const response = await axios.get<AutoLoginResponse>(
+                            'http://localhost:5000/v1/api/auth/autologin', 
+                            { withCredentials: true }
+                        );
+                        return response.data;
+                    }, 
+                    {
+                        loading: 'Attempting autologin...',
+                        success: (data) => {if(data.status === 201) {router.push('/home'); return data.msg;} return `${data.msg}`},
+                        error: 'Backend Not Available, contact manasvi / aryan.'
+                    }
+                );
+            } catch(err) {
+                console.log(err);
+            }
+        }
+        autoLogin(); 
+    }, []);
+
+    const loginHandler = async() => {
+        if(!email || !pass) {
             toast.warning('Missing credentials.');
             return;
         }
         await toast.promise(
             async() => {
-                const response = await axios.post<SignupResponse>(
-                    'http://localhost:5000/v1/api/auth/signup',
+                const response = await axios.post<LoginResponse>(
+                    'http://localhost:5000/v1/api/auth/login',
                     {
                         email: email,
                         password: pass,
-                        name: name
                     },
                     {
                         withCredentials: true
@@ -55,12 +83,7 @@ export default function Signup() {
             },
             {
                 loading: 'Creating your account...',
-                success: (data) => {if(data.status === 201) {
-                    router.push('/auth/login'); 
-                    return `${data.msg}`;
-                } else {
-                    return `${data.msg}`; 
-                }},
+                success: (data) => `${data.msg}`,
                 error: 'Sockify Backend Unavailable.'
             }
         )
@@ -70,16 +93,12 @@ export default function Signup() {
         <Card className="w-full max-w-sm border-none p-0 shadow-none">
         <MagicCard gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"} className="p-0">
             <CardHeader className="border-border border-b p-4 [.border-b]:pb-4">
-            <CardTitle>Signup</CardTitle>
-            <CardDescription>Enter your credentials to signup for sockify.</CardDescription>
+            <CardTitle>Login</CardTitle>
+            <CardDescription>Enter credentials to login.</CardDescription>
             </CardHeader>
             <CardContent className="p-4">
             <form>
                 <div className="grid gap-4">
-                <div className="grid gap-2">
-                    <Label htmlFor="email">Full Name</Label>
-                    <Input value={name} onChange={(e) => {setName(e.target.value)}} id="name" type="text" placeholder="Aryan Chauhan" />
-                </div>
                 <div className="grid gap-2">
                     <Label htmlFor="email">Email</Label>
                     <Input value={email} onChange={(e) => {setEmail(e.target.value)}} id="email" type="email" placeholder="aryancwork381@manasvi.com" />
@@ -92,7 +111,7 @@ export default function Signup() {
             </form>
             </CardContent>
             <CardFooter className="border-border border-t p-4 [.border-t]:pt-4">
-            <Button className="w-full cursor-pointer" onClick={signUpHandler}>Sign In</Button>
+            <Button className="w-full cursor-pointer" onClick={loginHandler}>Sign In</Button>
             </CardFooter>
         </MagicCard>
         </Card>

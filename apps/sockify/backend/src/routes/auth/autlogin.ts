@@ -18,7 +18,7 @@ router.get('/autologin', async (req, res) => {
         const token = req.cookies.access_token
         console.log(token);
         if(!token || token === "") {
-            return res.json({ status: 401, msg: 'Auto-login failed: Invalid or Expired Token' });
+            return res.json({ status: 401, msg: 'Auto-login failed: Invalid or Expired Token.' });
         }
         const payload = jwt.verify(token, process.env.JWT_SECRET as string) as AccessTokenPayload;
 
