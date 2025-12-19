@@ -7,7 +7,7 @@ import { IoIosLogOut } from "react-icons/io";
 
 export default function Sidebar() {
     return(
-        <div className="flex flex-col w-[20%] h-[95vh] ml-[1vw] mt-[1vw] mb-[1vw] bg-[#1a1a1a] rounded-sm transition ease-in all">
+        <div className="flex flex-col w-[20%] h-[95vh] bg-[#1a1a1a] rounded-sm transition ease-in all">
             <div className="flex flex-col h-full pt-[0.5vw] pl-[0.5vw] pr-[0.5vw] pb-[0.5vw]">
                 <div className="h-[10%]">
                     <p className="cursor-pointer text-gray-300 pt-[0.5vw] pb-[0.5vw] pr-[0.5vw] pl-[0.5vw] rounded-sm bg-[#2b2b2b] hover:bg-[#30302f] w-[18.5vw] text-center hover:text-white">aryancwork381@gmail.com</p>

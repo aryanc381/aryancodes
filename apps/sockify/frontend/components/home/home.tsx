@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
-import { Button } from "../ui/button";
 import { RainbowButton } from "../ui/rainbow-button";
 import './bbr.css';
 import './italic.css';
@@ -16,10 +14,8 @@ export default function Home() {
                 <Landing />
             </div>
         </div>
-    )
+    );
 }
-
-
 
 function Landing() {
     return(
@@ -37,5 +33,5 @@ function Landing() {
                 <a href="https://www.linkedin.com/in/aryanc381" target="_blank" className="underline">@aryanc381</a>
             </div>
         </div>
-    )
+    );
 }
