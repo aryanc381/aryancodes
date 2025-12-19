@@ -14,12 +14,27 @@ datasource db {
   provider = "postgresql"
 }
 
-model Sock_user { 
-  id        Int      @id       @default(autoincrement())
-  name      String
-  email     String   @unique  
-  password  String
-  token     String
-  rooms     Int[]   @default([])
-  connects  Int[]   @default([])  
+model SOCK_USERS { 
+  id          Int       @id       @default(autoincrement())
+  name        String
+  email       String    @unique  
+  password    String
+  token       String
+  rooms       Int[]     @default([])
+  pending     Int[]     @default([])
+  accepted    Int[]     @default([])  
+}
+
+model SOCK_ROOMS {
+  id          Int       @id     @default(autoincrement())
+  user_one    Int       
+  user_two    Int       
+}
+
+model SOCK_PAYLOAD {
+  id          Int       @id      @default(autoincrement())
+  room_id     Int      
+  sender      Int      
+  payload     String
+  created_at  DateTime  @default(now())
 }

@@ -29,8 +29,8 @@ export * from "./enums.js"
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Sock_users
- * const sock_users = await prisma.sock_user.findMany()
+ * // Fetch zero or more SOCK_USERS
+ * const sOCK_USERS = await prisma.sOCK_USERS.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -40,7 +40,17 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
- * Model Sock_user
+ * Model SOCK_USERS
  * 
  */
-export type Sock_user = Prisma.Sock_userModel
+export type SOCK_USERS = Prisma.SOCK_USERSModel
+/**
+ * Model SOCK_ROOMS
+ * 
+ */
+export type SOCK_ROOMS = Prisma.SOCK_ROOMSModel
+/**
+ * Model SOCK_PAYLOAD
+ * 
+ */
+export type SOCK_PAYLOAD = Prisma.SOCK_PAYLOADModel

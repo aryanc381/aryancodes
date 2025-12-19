@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
     }
 
     const { email, password } = req.body;
-    const existing_user = await prisma.sock_user.findUnique({
+    const existing_user = await prisma.sOCK_USERS.findUnique({
         where: { email: email },
         select: { token: true, password: true }
     });

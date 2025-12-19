@@ -16,4 +16,4 @@ app.use(express.json());
 
 app.use('/v1/api', rootRouter);
 
-app.listen(5000, () => { console.log('App is listenng at PORT-5000.'); });
+app.listen(5000, () => { console.log('App is listening at PORT-5000.'); });

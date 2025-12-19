@@ -26,7 +26,7 @@ router.post('/signup', async (req, res) => {
 
     const { name, email, password } = req.body;
 
-    const existing_user = await prisma.sock_user.findUnique({
+    const existing_user = await prisma.sOCK_USERS.findUnique({
         where: { email: email }
     });
     if(existing_user) {
@@ -38,7 +38,7 @@ router.post('/signup', async (req, res) => {
 
     const hashed_password = await bcrypt.hash(password, Number(process.env.SALT));
     const token = jwt.sign({ email: email }, process.env.JWT_SECRET as string);
-    const new_user = await prisma.sock_user.create({
+    const new_user = await prisma.sOCK_USERS.create({
         data: {
             name: name, 
             email: email,

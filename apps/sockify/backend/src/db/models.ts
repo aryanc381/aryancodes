@@ -8,5 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-export type * from './models/Sock_user.js'
+export type * from './models/SOCK_USERS.js'
+export type * from './models/SOCK_ROOMS.js'
+export type * from './models/SOCK_PAYLOAD.js'
 export type * from './commonInputTypes.js'

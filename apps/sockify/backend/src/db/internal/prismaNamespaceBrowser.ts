@@ -51,7 +51,9 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Sock_user: 'Sock_user'
+  SOCK_USERS: 'SOCK_USERS',
+  SOCK_ROOMS: 'SOCK_ROOMS',
+  SOCK_PAYLOAD: 'SOCK_PAYLOAD'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -70,17 +72,38 @@ export const TransactionIsolationLevel = {
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const Sock_userScalarFieldEnum = {
+export const SOCK_USERSScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
   password: 'password',
   token: 'token',
   rooms: 'rooms',
-  connects: 'connects'
+  pending: 'pending',
+  accepted: 'accepted'
 } as const
 
-export type Sock_userScalarFieldEnum = (typeof Sock_userScalarFieldEnum)[keyof typeof Sock_userScalarFieldEnum]
+export type SOCK_USERSScalarFieldEnum = (typeof SOCK_USERSScalarFieldEnum)[keyof typeof SOCK_USERSScalarFieldEnum]
+
+
+export const SOCK_ROOMSScalarFieldEnum = {
+  id: 'id',
+  user_one: 'user_one',
+  user_two: 'user_two'
+} as const
+
+export type SOCK_ROOMSScalarFieldEnum = (typeof SOCK_ROOMSScalarFieldEnum)[keyof typeof SOCK_ROOMSScalarFieldEnum]
+
+
+export const SOCK_PAYLOADScalarFieldEnum = {
+  id: 'id',
+  room_id: 'room_id',
+  sender: 'sender',
+  payload: 'payload',
+  created_at: 'created_at'
+} as const
+
+export type SOCK_PAYLOADScalarFieldEnum = (typeof SOCK_PAYLOADScalarFieldEnum)[keyof typeof SOCK_PAYLOADScalarFieldEnum]
 
 
 export const SortOrder = {

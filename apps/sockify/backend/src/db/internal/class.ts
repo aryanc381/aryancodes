@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.2.0",
   "engineVersion": "0c8ef2ce45c83248ab3df073180d5eda9e8be7a3",
   "activeProvider": "postgresql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Sock_user {\n  id       Int    @id @default(autoincrement())\n  name     String\n  email    String @unique\n  password String\n  token    String\n  rooms    Int[]  @default([])\n  connects Int[]  @default([])\n}\n",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../src/db\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel SOCK_USERS {\n  id       Int    @id @default(autoincrement())\n  name     String\n  email    String @unique\n  password String\n  token    String\n  rooms    Int[]  @default([])\n  pending  Int[]  @default([])\n  accepted Int[]  @default([])\n}\n\nmodel SOCK_ROOMS {\n  id       Int @id @default(autoincrement())\n  user_one Int\n  user_two Int\n}\n\nmodel SOCK_PAYLOAD {\n  id         Int      @id @default(autoincrement())\n  room_id    Int\n  sender     Int\n  payload    String\n  created_at DateTime @default(now())\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Sock_user\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"rooms\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"connects\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"SOCK_USERS\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"rooms\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"pending\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"accepted\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"SOCK_ROOMS\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user_one\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user_two\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"SOCK_PAYLOAD\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"room_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"sender\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"payload\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -58,8 +58,8 @@ export interface PrismaClientConstructor {
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Sock_users
-   * const sock_users = await prisma.sock_user.findMany()
+   * // Fetch zero or more SOCK_USERS
+   * const sOCK_USERS = await prisma.sOCK_USERS.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -80,8 +80,8 @@ export interface PrismaClientConstructor {
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Sock_users
- * const sock_users = await prisma.sock_user.findMany()
+ * // Fetch zero or more SOCK_USERS
+ * const sOCK_USERS = await prisma.sOCK_USERS.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -175,14 +175,34 @@ export interface PrismaClient<
   }>>
 
       /**
-   * `prisma.sock_user`: Exposes CRUD operations for the **Sock_user** model.
+   * `prisma.sOCK_USERS`: Exposes CRUD operations for the **SOCK_USERS** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Sock_users
-    * const sock_users = await prisma.sock_user.findMany()
+    * // Fetch zero or more SOCK_USERS
+    * const sOCK_USERS = await prisma.sOCK_USERS.findMany()
     * ```
     */
-  get sock_user(): Prisma.Sock_userDelegate<ExtArgs, { omit: OmitOpts }>;
+  get sOCK_USERS(): Prisma.SOCK_USERSDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.sOCK_ROOMS`: Exposes CRUD operations for the **SOCK_ROOMS** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SOCK_ROOMS
+    * const sOCK_ROOMS = await prisma.sOCK_ROOMS.findMany()
+    * ```
+    */
+  get sOCK_ROOMS(): Prisma.SOCK_ROOMSDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
+   * `prisma.sOCK_PAYLOAD`: Exposes CRUD operations for the **SOCK_PAYLOAD** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SOCK_PAYLOADS
+    * const sOCK_PAYLOADS = await prisma.sOCK_PAYLOAD.findMany()
+    * ```
+    */
+  get sOCK_PAYLOAD(): Prisma.SOCK_PAYLOADDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

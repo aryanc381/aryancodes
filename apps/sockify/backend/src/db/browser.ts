@@ -18,7 +18,17 @@ export { Prisma }
 export * as $Enums from './enums.js'
 export * from './enums.js';
 /**
- * Model Sock_user
+ * Model SOCK_USERS
  * 
  */
-export type Sock_user = Prisma.Sock_userModel
+export type SOCK_USERS = Prisma.SOCK_USERSModel
+/**
+ * Model SOCK_ROOMS
+ * 
+ */
+export type SOCK_ROOMS = Prisma.SOCK_ROOMSModel
+/**
+ * Model SOCK_PAYLOAD
+ * 
+ */
+export type SOCK_PAYLOAD = Prisma.SOCK_PAYLOADModel

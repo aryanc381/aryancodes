@@ -384,7 +384,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Sock_user: 'Sock_user'
+  SOCK_USERS: 'SOCK_USERS',
+  SOCK_ROOMS: 'SOCK_ROOMS',
+  SOCK_PAYLOAD: 'SOCK_PAYLOAD'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,81 +402,229 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "sock_user"
+    modelProps: "sOCK_USERS" | "sOCK_ROOMS" | "sOCK_PAYLOAD"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
-    Sock_user: {
-      payload: Prisma.$Sock_userPayload<ExtArgs>
-      fields: Prisma.Sock_userFieldRefs
+    SOCK_USERS: {
+      payload: Prisma.$SOCK_USERSPayload<ExtArgs>
+      fields: Prisma.SOCK_USERSFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.Sock_userFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload> | null
+          args: Prisma.SOCK_USERSFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.Sock_userFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>
+          args: Prisma.SOCK_USERSFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>
         }
         findFirst: {
-          args: Prisma.Sock_userFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload> | null
+          args: Prisma.SOCK_USERSFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.Sock_userFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>
+          args: Prisma.SOCK_USERSFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>
         }
         findMany: {
-          args: Prisma.Sock_userFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>[]
+          args: Prisma.SOCK_USERSFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>[]
         }
         create: {
-          args: Prisma.Sock_userCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>
+          args: Prisma.SOCK_USERSCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>
         }
         createMany: {
-          args: Prisma.Sock_userCreateManyArgs<ExtArgs>
+          args: Prisma.SOCK_USERSCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.Sock_userCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>[]
+          args: Prisma.SOCK_USERSCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>[]
         }
         delete: {
-          args: Prisma.Sock_userDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>
+          args: Prisma.SOCK_USERSDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>
         }
         update: {
-          args: Prisma.Sock_userUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>
+          args: Prisma.SOCK_USERSUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>
         }
         deleteMany: {
-          args: Prisma.Sock_userDeleteManyArgs<ExtArgs>
+          args: Prisma.SOCK_USERSDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.Sock_userUpdateManyArgs<ExtArgs>
+          args: Prisma.SOCK_USERSUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.Sock_userUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>[]
+          args: Prisma.SOCK_USERSUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>[]
         }
         upsert: {
-          args: Prisma.Sock_userUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Sock_userPayload>
+          args: Prisma.SOCK_USERSUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_USERSPayload>
         }
         aggregate: {
-          args: Prisma.Sock_userAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateSock_user>
+          args: Prisma.SOCK_USERSAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSOCK_USERS>
         }
         groupBy: {
-          args: Prisma.Sock_userGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Sock_userGroupByOutputType>[]
+          args: Prisma.SOCK_USERSGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SOCK_USERSGroupByOutputType>[]
         }
         count: {
-          args: Prisma.Sock_userCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Sock_userCountAggregateOutputType> | number
+          args: Prisma.SOCK_USERSCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SOCK_USERSCountAggregateOutputType> | number
+        }
+      }
+    }
+    SOCK_ROOMS: {
+      payload: Prisma.$SOCK_ROOMSPayload<ExtArgs>
+      fields: Prisma.SOCK_ROOMSFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SOCK_ROOMSFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SOCK_ROOMSFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>
+        }
+        findFirst: {
+          args: Prisma.SOCK_ROOMSFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SOCK_ROOMSFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>
+        }
+        findMany: {
+          args: Prisma.SOCK_ROOMSFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>[]
+        }
+        create: {
+          args: Prisma.SOCK_ROOMSCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>
+        }
+        createMany: {
+          args: Prisma.SOCK_ROOMSCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SOCK_ROOMSCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>[]
+        }
+        delete: {
+          args: Prisma.SOCK_ROOMSDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>
+        }
+        update: {
+          args: Prisma.SOCK_ROOMSUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>
+        }
+        deleteMany: {
+          args: Prisma.SOCK_ROOMSDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SOCK_ROOMSUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SOCK_ROOMSUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>[]
+        }
+        upsert: {
+          args: Prisma.SOCK_ROOMSUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_ROOMSPayload>
+        }
+        aggregate: {
+          args: Prisma.SOCK_ROOMSAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSOCK_ROOMS>
+        }
+        groupBy: {
+          args: Prisma.SOCK_ROOMSGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SOCK_ROOMSGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SOCK_ROOMSCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SOCK_ROOMSCountAggregateOutputType> | number
+        }
+      }
+    }
+    SOCK_PAYLOAD: {
+      payload: Prisma.$SOCK_PAYLOADPayload<ExtArgs>
+      fields: Prisma.SOCK_PAYLOADFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SOCK_PAYLOADFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SOCK_PAYLOADFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>
+        }
+        findFirst: {
+          args: Prisma.SOCK_PAYLOADFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SOCK_PAYLOADFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>
+        }
+        findMany: {
+          args: Prisma.SOCK_PAYLOADFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>[]
+        }
+        create: {
+          args: Prisma.SOCK_PAYLOADCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>
+        }
+        createMany: {
+          args: Prisma.SOCK_PAYLOADCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SOCK_PAYLOADCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>[]
+        }
+        delete: {
+          args: Prisma.SOCK_PAYLOADDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>
+        }
+        update: {
+          args: Prisma.SOCK_PAYLOADUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>
+        }
+        deleteMany: {
+          args: Prisma.SOCK_PAYLOADDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SOCK_PAYLOADUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SOCK_PAYLOADUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>[]
+        }
+        upsert: {
+          args: Prisma.SOCK_PAYLOADUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SOCK_PAYLOADPayload>
+        }
+        aggregate: {
+          args: Prisma.SOCK_PAYLOADAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSOCK_PAYLOAD>
+        }
+        groupBy: {
+          args: Prisma.SOCK_PAYLOADGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SOCK_PAYLOADGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SOCK_PAYLOADCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SOCK_PAYLOADCountAggregateOutputType> | number
         }
       }
     }
@@ -517,17 +667,38 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const Sock_userScalarFieldEnum = {
+export const SOCK_USERSScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
   password: 'password',
   token: 'token',
   rooms: 'rooms',
-  connects: 'connects'
+  pending: 'pending',
+  accepted: 'accepted'
 } as const
 
-export type Sock_userScalarFieldEnum = (typeof Sock_userScalarFieldEnum)[keyof typeof Sock_userScalarFieldEnum]
+export type SOCK_USERSScalarFieldEnum = (typeof SOCK_USERSScalarFieldEnum)[keyof typeof SOCK_USERSScalarFieldEnum]
+
+
+export const SOCK_ROOMSScalarFieldEnum = {
+  id: 'id',
+  user_one: 'user_one',
+  user_two: 'user_two'
+} as const
+
+export type SOCK_ROOMSScalarFieldEnum = (typeof SOCK_ROOMSScalarFieldEnum)[keyof typeof SOCK_ROOMSScalarFieldEnum]
+
+
+export const SOCK_PAYLOADScalarFieldEnum = {
+  id: 'id',
+  room_id: 'room_id',
+  sender: 'sender',
+  payload: 'payload',
+  created_at: 'created_at'
+} as const
+
+export type SOCK_PAYLOADScalarFieldEnum = (typeof SOCK_PAYLOADScalarFieldEnum)[keyof typeof SOCK_PAYLOADScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -577,6 +748,20 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -688,7 +873,9 @@ export type PrismaClientOptions = ({
   comments?: runtime.SqlCommenterPlugin[]
 }
 export type GlobalOmitConfig = {
-  sock_user?: Prisma.Sock_userOmit
+  sOCK_USERS?: Prisma.SOCK_USERSOmit
+  sOCK_ROOMS?: Prisma.SOCK_ROOMSOmit
+  sOCK_PAYLOAD?: Prisma.SOCK_PAYLOADOmit
 }
 
 /* Types for Logging */
