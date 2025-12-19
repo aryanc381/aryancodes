@@ -19,7 +19,7 @@ model SOCK_USERS {
   name        String
   email       String    @unique  
   password    String
-  token       String
+  token       String?
   rooms       Int[]     @default([])
   pending     Int[]     @default([])
   accepted    Int[]     @default([])  

@@ -83,7 +83,7 @@ export default function Login() {
             },
             {
                 loading: 'Creating your account...',
-                success: (data) => `${data.msg}`,
+                success: (data) => {if(data.status === 201) { router.push('/home'); return data.msg} else { return `${data.msg}`}},
                 error: 'Sockify Backend Unavailable.'
             }
         )

@@ -63,7 +63,7 @@ router.get('/retrieve', async(req, res) => {
                 status: 200,
                 msg: "User-DB found for " + existing_user.name,
                 pending_users: pending_users,
-                accpeted_users: accpeted_users
+                accepeted_users: accpeted_users
             });
 
         });

@@ -202,7 +202,7 @@ export type SOCK_USERSGroupByOutputType = {
   name: string
   email: string
   password: string
-  token: string
+  token: string | null
   rooms: number[]
   pending: number[]
   accepted: number[]
@@ -236,7 +236,7 @@ export type SOCK_USERSWhereInput = {
   name?: Prisma.StringFilter<"SOCK_USERS"> | string
   email?: Prisma.StringFilter<"SOCK_USERS"> | string
   password?: Prisma.StringFilter<"SOCK_USERS"> | string
-  token?: Prisma.StringFilter<"SOCK_USERS"> | string
+  token?: Prisma.StringNullableFilter<"SOCK_USERS"> | string | null
   rooms?: Prisma.IntNullableListFilter<"SOCK_USERS">
   pending?: Prisma.IntNullableListFilter<"SOCK_USERS">
   accepted?: Prisma.IntNullableListFilter<"SOCK_USERS">
@@ -247,7 +247,7 @@ export type SOCK_USERSOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  token?: Prisma.SortOrder
+  token?: Prisma.SortOrderInput | Prisma.SortOrder
   rooms?: Prisma.SortOrder
   pending?: Prisma.SortOrder
   accepted?: Prisma.SortOrder
@@ -261,7 +261,7 @@ export type SOCK_USERSWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.SOCK_USERSWhereInput | Prisma.SOCK_USERSWhereInput[]
   name?: Prisma.StringFilter<"SOCK_USERS"> | string
   password?: Prisma.StringFilter<"SOCK_USERS"> | string
-  token?: Prisma.StringFilter<"SOCK_USERS"> | string
+  token?: Prisma.StringNullableFilter<"SOCK_USERS"> | string | null
   rooms?: Prisma.IntNullableListFilter<"SOCK_USERS">
   pending?: Prisma.IntNullableListFilter<"SOCK_USERS">
   accepted?: Prisma.IntNullableListFilter<"SOCK_USERS">
@@ -272,7 +272,7 @@ export type SOCK_USERSOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  token?: Prisma.SortOrder
+  token?: Prisma.SortOrderInput | Prisma.SortOrder
   rooms?: Prisma.SortOrder
   pending?: Prisma.SortOrder
   accepted?: Prisma.SortOrder
@@ -291,7 +291,7 @@ export type SOCK_USERSScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"SOCK_USERS"> | string
   email?: Prisma.StringWithAggregatesFilter<"SOCK_USERS"> | string
   password?: Prisma.StringWithAggregatesFilter<"SOCK_USERS"> | string
-  token?: Prisma.StringWithAggregatesFilter<"SOCK_USERS"> | string
+  token?: Prisma.StringNullableWithAggregatesFilter<"SOCK_USERS"> | string | null
   rooms?: Prisma.IntNullableListFilter<"SOCK_USERS">
   pending?: Prisma.IntNullableListFilter<"SOCK_USERS">
   accepted?: Prisma.IntNullableListFilter<"SOCK_USERS">
@@ -301,7 +301,7 @@ export type SOCK_USERSCreateInput = {
   name: string
   email: string
   password: string
-  token: string
+  token?: string | null
   rooms?: Prisma.SOCK_USERSCreateroomsInput | number[]
   pending?: Prisma.SOCK_USERSCreatependingInput | number[]
   accepted?: Prisma.SOCK_USERSCreateacceptedInput | number[]
@@ -312,7 +312,7 @@ export type SOCK_USERSUncheckedCreateInput = {
   name: string
   email: string
   password: string
-  token: string
+  token?: string | null
   rooms?: Prisma.SOCK_USERSCreateroomsInput | number[]
   pending?: Prisma.SOCK_USERSCreatependingInput | number[]
   accepted?: Prisma.SOCK_USERSCreateacceptedInput | number[]
@@ -322,7 +322,7 @@ export type SOCK_USERSUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  token?: Prisma.StringFieldUpdateOperationsInput | string
+  token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.SOCK_USERSUpdateroomsInput | number[]
   pending?: Prisma.SOCK_USERSUpdatependingInput | number[]
   accepted?: Prisma.SOCK_USERSUpdateacceptedInput | number[]
@@ -333,7 +333,7 @@ export type SOCK_USERSUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  token?: Prisma.StringFieldUpdateOperationsInput | string
+  token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.SOCK_USERSUpdateroomsInput | number[]
   pending?: Prisma.SOCK_USERSUpdatependingInput | number[]
   accepted?: Prisma.SOCK_USERSUpdateacceptedInput | number[]
@@ -344,7 +344,7 @@ export type SOCK_USERSCreateManyInput = {
   name: string
   email: string
   password: string
-  token: string
+  token?: string | null
   rooms?: Prisma.SOCK_USERSCreateroomsInput | number[]
   pending?: Prisma.SOCK_USERSCreatependingInput | number[]
   accepted?: Prisma.SOCK_USERSCreateacceptedInput | number[]
@@ -354,7 +354,7 @@ export type SOCK_USERSUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  token?: Prisma.StringFieldUpdateOperationsInput | string
+  token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.SOCK_USERSUpdateroomsInput | number[]
   pending?: Prisma.SOCK_USERSUpdatependingInput | number[]
   accepted?: Prisma.SOCK_USERSUpdateacceptedInput | number[]
@@ -365,7 +365,7 @@ export type SOCK_USERSUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  token?: Prisma.StringFieldUpdateOperationsInput | string
+  token?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.SOCK_USERSUpdateroomsInput | number[]
   pending?: Prisma.SOCK_USERSUpdatependingInput | number[]
   accepted?: Prisma.SOCK_USERSUpdateacceptedInput | number[]
@@ -434,6 +434,10 @@ export type SOCK_USERSCreateacceptedInput = {
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 export type SOCK_USERSUpdateroomsInput = {
@@ -515,7 +519,7 @@ export type $SOCK_USERSPayload<ExtArgs extends runtime.Types.Extensions.Internal
     name: string
     email: string
     password: string
-    token: string
+    token: string | null
     rooms: number[]
     pending: number[]
     accepted: number[]

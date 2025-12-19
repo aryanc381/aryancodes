@@ -4,6 +4,7 @@ import { prisma } from '../../lib/prisma.js';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import cookieParser from 'cookie-parser';
+import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
@@ -26,7 +27,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const existing_user = await prisma.sOCK_USERS.findUnique({
         where: { email: email },
-        select: { token: true, password: true }
+        select: { token: true, password: true, id: true, email: true }
     });
 
     if(!existing_user) {
@@ -37,12 +38,13 @@ router.post('/login', async (req, res) => {
     }
 
     const is_valid = await bcrypt.compare(password, existing_user?.password!);
+    const token = await jwt.sign({ email: existing_user.email, id: existing_user.id }, process.env.JWT_SECRET as string);
 
     if(!is_valid) {
         return res.json({ status: 405, msg: 'Invalid Password.'});
     }
 
-    res.cookie("access_token", existing_user?.token, { httpOnly: true, sameSite: 'lax', secure: false });
+    res.cookie("access_token", token, { httpOnly: true, sameSite: 'lax', secure: false });
     
     return res.json({
         status: 201,

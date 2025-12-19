@@ -1,11 +1,8 @@
 import express from 'express';
 import zod from 'zod';
-import jwt from 'jsonwebtoken';
 import { prisma } from '../../lib/prisma.js';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
-
 
 dotenv.config();
 
@@ -17,7 +14,6 @@ const signUpBody = zod.object({
 });
 
 router.post('/signup', async (req, res) => {
-
     const parsed = signUpBody.safeParse(req.body);
     if(!parsed.success) { 
         const formattedErrors = parsed.error.issues.map(err => ({ path: err.path[0], msg: err.message }));
@@ -37,24 +33,21 @@ router.post('/signup', async (req, res) => {
     }
 
     const hashed_password = await bcrypt.hash(password, Number(process.env.SALT));
-    const token = jwt.sign({ email: email }, process.env.JWT_SECRET as string);
+    
     const new_user = await prisma.sOCK_USERS.create({
         data: {
             name: name, 
             email: email,
-            password: hashed_password,
-            token: token
+            password: hashed_password
         }
     });
 
-    res.cookie("access_token", token, { httpOnly: true, sameSite: 'lax', secure: false });
 
     return res.json({
         status: 201,
         msg: 'User has been added to Sockify-DB.',
         name: new_user.name,
         password: new_user.password,
-        token: new_user.token
     });
 });
 
