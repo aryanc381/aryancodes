@@ -26,7 +26,7 @@ router.post('/send', async (req, res) => {
     // finding if receiver actually exists haha.
     const receiver = await prisma.sOCK_USERS.findUnique({
         where: { email: r_email },
-        select: { id: true, pending: true, name: true }
+        select: { id: true, pending: true, name: true, accepted: true }
     });
 
     if(!receiver) {
@@ -58,6 +58,13 @@ router.post('/send', async (req, res) => {
             status: 403,
             msg: 'You have already sent friend request.'
         })
+    }
+
+    if (receiver.accepted.includes(sender.id)) {
+        return res.json({
+            status: 403,
+            msg: 'You are already connected with ' + receiver.name
+        });
     }
 
     // adding the user to the pending-connects array.
