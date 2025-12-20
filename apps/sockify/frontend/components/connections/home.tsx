@@ -20,8 +20,8 @@ export default function Home() {
 function Landing() {
     return(
         <div className="flex flex-col h-[100vh] items-center justify-center">
-            <p className="bartle text-[4.5vw] md:text-[4vw]">#1 Memory Layer</p>
-            <p className="text-[5vw] md:text-[3vw] font-[500]">for SMBs and Founders.</p>
+            <p className="bartle text-[4.5vw] md:text-[4vw]">Memory Layer</p>
+            <p className="text-[3vw] md:text-[2.25vw] font-[500]">An AI-powered Second Brain for SMBs and Founders.</p>
             <div className="flex items-center mt-[1.5vw] gap-[0.5vw]">
                 <RainbowButton className="rounded-2xl mt-[1vw] md:mt-[0vw]"><Link href={'/auth/signup'}>Try for Free</Link></RainbowButton>
                 <RainbowButton className="hidden md:flex rounded-[10vw]"><Link href={'/about/system'}>System Architecture</Link></RainbowButton>

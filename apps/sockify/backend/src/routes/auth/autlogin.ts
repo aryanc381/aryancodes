@@ -25,7 +25,9 @@ router.get('/autologin', async (req, res) => {
         return res.json({
             status: 201,
             msg: 'Autlogin successfull, navigating to app.',
-            email: payload?.email
+            email: payload?.email,
+            name: payload.name,
+            id: payload.id
         });
 
     } catch(err) {

@@ -17,18 +17,24 @@ import { Label } from "@/components/ui/label";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/lib/store/slice/userSlice";
 
 interface LoginResponse {
     status: number,
     msg: string;
+    id: number;
     name: string;
     password: string;
+    email: string;
     token: string;
 }
 
 interface AutoLoginResponse {
-    email?: string;
+    email: string;
     status: number;
+    name: string;
+    id: number;
     msg: string;
 
 }
@@ -37,6 +43,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const router = useRouter();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const autoLogin = async() => {
@@ -51,7 +58,14 @@ export default function Login() {
                     }, 
                     {
                         loading: 'Attempting autologin...',
-                        success: (data) => {if(data.status === 201) {router.push('/home'); return data.msg;} return `${data.msg}`},
+                        success: (data) => {
+                            if(data.status === 201) {
+                                dispatch(setUser({ name: data.name, email: data.email, id:data.id }));
+                                router.push('/connections');
+                                return data.msg;
+                            } 
+                            return `${data.msg}`
+                        },
                         error: 'Backend Not Available, contact manasvi / aryan.'
                     }
                 );
@@ -83,7 +97,18 @@ export default function Login() {
             },
             {
                 loading: 'Creating your account...',
-                success: (data) => {if(data.status === 201) { router.push('/home'); return data.msg} else { return `${data.msg}`}},
+                success: (data) => {
+                    if(data.status === 201) {
+                        
+                        dispatch(setUser({ name: data.name, email: data.email, id:data.id }));
+                        console.log(data);
+
+                        router.push('/connections'); 
+                        return data.msg;
+                    } else { 
+                        return `${data.msg}`
+                    }
+                },
                 error: 'Sockify Backend Unavailable.'
             }
         )

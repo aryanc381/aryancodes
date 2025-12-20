@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const existing_user = await prisma.sOCK_USERS.findUnique({
         where: { email: email },
-        select: { token: true, password: true, id: true, email: true }
+        select: { token: true, password: true, id: true, email: true, name: true }
     });
 
     if(!existing_user) {
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
     }
 
     const is_valid = await bcrypt.compare(password, existing_user?.password!);
-    const token = await jwt.sign({ email: existing_user.email, id: existing_user.id }, process.env.JWT_SECRET as string);
+    const token = jwt.sign({ email: existing_user.email, id: existing_user.id, name: existing_user.name }, process.env.JWT_SECRET as string);
 
     if(!is_valid) {
         return res.json({ status: 405, msg: 'Invalid Password.'});
@@ -49,7 +49,10 @@ router.post('/login', async (req, res) => {
     return res.json({
         status: 201,
         msg: 'User has logged in successfully!',
-        token: existing_user?.token
+        token: existing_user?.token,
+        email: existing_user.email,
+        name: existing_user.name,
+        id: existing_user.id
     });
 });
 
