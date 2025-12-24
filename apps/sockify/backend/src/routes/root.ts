@@ -5,10 +5,11 @@ import autoLoginRouter from './auth/autlogin.js';
 import sendReqRouter from './connection/send.js';
 import acceptReqRouter from './connection/accept.js';
 import retrieveRouter from './connection/get.js';
+import fetchAllRouter from './connection/fetchAll.js';
 
 const router = express.Router();
 
 router.use('/auth', signupRouter, loginRouter, autoLoginRouter);
-router.use('/connect', sendReqRouter, acceptReqRouter, retrieveRouter);
+router.use('/connect', sendReqRouter, acceptReqRouter, retrieveRouter, fetchAllRouter);
 
 export default router;

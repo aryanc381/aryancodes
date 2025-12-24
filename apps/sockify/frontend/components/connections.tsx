@@ -25,19 +25,37 @@ export default function Connections() {
     const user = useSelector((state: any) => state.user);
     const { pending, accepted } = useAppSelector((state) => state.users);
     const dispatch = useDispatch();
+    const [r_email, setRemail] = useState('');
 
-    const acceptHandler = async() => {
-
+    interface AcceptResponse {
+        msg: string;
+        status: number;
     }
 
-    useEffect(() => {
-        if (!user?.email) return;
+    const acceptHandler = async() => {
+        console.log(user.email, r_email);
+        toast.promise(
+            Promise.resolve(
+                axios.post<AcceptResponse>('http://localhost:5000/v1/api/connect/accept', 
+                    { s_email: r_email, r_email: user.email }
+                ),
+            ),
+            {
+                loading: 'Accepting Friend Request',
+                success: (res) => { return res.data?.msg },
+                error: () =>  "Backend not available."
+            }, 
+        );
 
-        const fetchConnections = async () => {
+        setInterval(() => {fetchConnections()}, 3000);
+    }
+
+    const fetchConnections = async () => {
+        
         const res = await axios.get<RetrieveUsersResponse>(
             `http://localhost:5000/v1/api/connect/retrieve?email=${user.email}`
         );
-        toast.success('User Data Fetched');
+        toast.success('User data updated and fetched.');
 
         dispatch(
             setUsers({
@@ -45,8 +63,10 @@ export default function Connections() {
             accepted: res.data.accepeted_users,
             })
         );
-        };
+    };
 
+    useEffect(() => {
+        if (!user?.email) return;
         fetchConnections();
     }, [user?.email, dispatch, refresh]);
     return(
@@ -59,18 +79,18 @@ export default function Connections() {
                         <Button onClick={() => {setRefresh(!refresh)}} className="rounded-lg cursor-pointer">Refresh</Button>
                     </div>
                     <div className="mt-[1vw] gap-[1vw] flex flex-col overflow-y-auto no-scrollbar ">
-                        {pending.map((user: any, index: any) => (
+                        {pending.map((usx: any, index: any) => (
                             <div className="flex flex-col" key={index}>
                                 <div className="flex items-center gap-[0.5vw]">
                                     <Avatar>
                                         <AvatarImage className="" src={'https://cdn-icons-png.freepik.com/512/8188/8188362.png'} />
                                     </Avatar>
                                     <div className="">
-                                        <p>{user.name}</p>
-                                        <p className="text-[0.85vw] text-gray-400">{user.email}</p>
+                                        <p>{usx.name}</p>
+                                        <p className="text-[0.85vw] text-gray-400">{usx.email}</p>
                                     </div>
                                     <div className="flex justify-end w-full mr-[1vw]">
-                                        <Button className="rounded-3xl text-[1vw] cursor-pointer" variant={'secondary'}>Accept</Button>
+                                        <Button className="rounded-3xl text-[1vw] cursor-pointer" variant={'secondary'} onClick={() => {setRemail(usx.email); acceptHandler();}}>Accept</Button>
                                     </div>
                                 </div>
                             </div>
@@ -84,15 +104,15 @@ export default function Connections() {
                         <Button onClick={() => {setRefresh(!refresh)}} className="rounded-lg cursor-pointer">Refresh</Button>
                     </div>
                     <div className="mt-[1vw] gap-[1vw] overflow-y-auto no-scrollbar flex-1 flex flex-col">
-                        {accepted.map((user, index) => (
+                        {accepted.map((usx, index) => (
                             <div key={index} className="">
                                 <div className="flex items-center gap-[0.5vw]">
                                     <Avatar>
                                         <AvatarImage className="" src={'https://cdn-icons-png.freepik.com/512/8188/8188362.png'} />
                                     </Avatar>
                                     <div className="">
-                                        <p>{user.name}</p>
-                                        <p className="text-[0.85vw] text-gray-400">{user.email}</p>
+                                        <p>{usx.name}</p>
+                                        <p className="text-[0.85vw] text-gray-400">{usx.email}</p>
                                     </div>
                                 </div>
                             </div>

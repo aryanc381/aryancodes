@@ -21,7 +21,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "@/lib/store/slice/userSlice";
 
 interface LoginResponse {
-    status: number,
+    status: number;
     msg: string;
     id: number;
     name: string;
