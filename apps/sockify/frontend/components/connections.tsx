@@ -26,14 +26,18 @@ export default function Connections() {
     const { pending, accepted } = useAppSelector((state) => state.users);
     const dispatch = useDispatch();
 
+    const acceptHandler = async() => {
+
+    }
+
     useEffect(() => {
-        toast.success('User Data Fetched');
         if (!user?.email) return;
 
         const fetchConnections = async () => {
         const res = await axios.get<RetrieveUsersResponse>(
             `http://localhost:5000/v1/api/connect/retrieve?email=${user.email}`
         );
+        toast.success('User Data Fetched');
 
         dispatch(
             setUsers({
@@ -52,7 +56,7 @@ export default function Connections() {
                 <div className="flex flex-col h-[45vh] bg-[#2b2b2b] pl-[1.5vw] pr-[1.5vw] pt-[1vw] pb-[1vw] rounded-sm">
                     <div className="flex justify-between">
                         <p className="text-[2vw]">Pending Requests</p>
-                        <Button onClick={() => {setRefresh(!refresh)}} className="text-[0.75vw] rounded-lg cursor-pointer">Refresh</Button>
+                        <Button onClick={() => {setRefresh(!refresh)}} className="rounded-lg cursor-pointer">Refresh</Button>
                     </div>
                     <div className="mt-[1vw] gap-[1vw] flex flex-col overflow-y-auto no-scrollbar ">
                         {pending.map((user: any, index: any) => (
@@ -77,7 +81,7 @@ export default function Connections() {
                 <div className="bg-[#2b2b2b] h-[44vh] pl-[1.5vw] pr-[1.5vw] pt-[1vw] pb-[1vw] rounded-sm flex flex-col">
                     <div className="flex justify-between">
                         <p className="text-[2vw]">Your Connects</p>
-                        <Button onClick={() => {setRefresh(!refresh)}} className="text-[0.75vw] rounded-lg cursor-pointer">Refresh</Button>
+                        <Button onClick={() => {setRefresh(!refresh)}} className="rounded-lg cursor-pointer">Refresh</Button>
                     </div>
                     <div className="mt-[1vw] gap-[1vw] overflow-y-auto no-scrollbar flex-1 flex flex-col">
                         {accepted.map((user, index) => (

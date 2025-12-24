@@ -25,7 +25,7 @@ const reviews = [
   {
     name: "Aditya Yenpure",
     username: "Capstone Member @MIT-Pune",
-    body: "Aryan is a dependable, proactive teammate who takes ownership and solves problems end to end. Crazy guy to work with.",
+    body: "I landed my internship after collaborating on a project with Aryan, an intense and inspiring person to work with. Learned a ton along the way. Crazy guy to work with!",
     img: "/yenpure.png",
   },
   {
@@ -49,7 +49,7 @@ const reviews = [
   {
     name: "Aditya Yenpure",
     username: "Capstone Member @MIT-Pune",
-    body: "Aryan is a dependable, proactive teammate who takes ownership and solves problems end to end. Crazy guy to work with.",
+    body: "I landed my internship after collaborating on a project with Aryan, an intense and inspiring person to work with. Learned a ton along the way. Crazy guy to work with!",
     img: "/yenpure.png",
   },
 ]

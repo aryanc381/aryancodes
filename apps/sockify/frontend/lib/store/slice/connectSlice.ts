@@ -1,8 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export interface ConnectUser {
+  name: string;
+  email: string;
+}
+
 interface UsersState {
-  pending: string[];
-  accepted: string[];
+  pending: ConnectUser[];
+  accepted: ConnectUser[];
 }
 
 const initialState: UsersState = {
@@ -10,7 +15,7 @@ const initialState: UsersState = {
   accepted: [],
 };
 
-const usersSlice = createSlice({
+const connectSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
@@ -25,5 +30,5 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setUsers, clearUsers } = usersSlice.actions;
-export default usersSlice.reducer;
+export const { setUsers, clearUsers } = connectSlice.actions;
+export default connectSlice.reducer;

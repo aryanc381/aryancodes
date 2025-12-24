@@ -36,7 +36,6 @@ interface AutoLoginResponse {
     name: string;
     id: number;
     msg: string;
-
 }
 
 export default function Login() {
@@ -96,7 +95,7 @@ export default function Login() {
                 return response.data;
             },
             {
-                loading: 'Creating your account...',
+                loading: 'Fetching your account...',
                 success: (data) => {
                     if(data.status === 201) {
                         
