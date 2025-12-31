@@ -4,13 +4,13 @@ import rootRouter from './routes/root.js';
 import cookieParser from "cookie-parser";
 import http from 'http';
 import { WebSocketServer } from "ws";
-import { setup } from "./routes/chat/send.js";
+import { chat } from "./routes/chat/send.js";
 
 const app = express();
 const server = http.createServer(app);
 
 export const wss = new WebSocketServer({ server });
-setup(wss);
+await chat(wss);
 app.use(
     cors({
         origin: 'http://localhost:3000',

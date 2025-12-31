@@ -147,6 +147,10 @@ html, body {
   --color-5: oklch(90.7% 0.231 133);
 }
 
+.scrollbar-thin::-webkit-scrollbar {
+  width: 0vw;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

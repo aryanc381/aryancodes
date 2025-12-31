@@ -195,7 +195,7 @@ export default function Connections() {
                                                         <p className="text-[0.85vw] text-gray-400">{usx.email}</p>
                                                     </div>
                                                     <div className="flex justify-end w-full mr-[1vw]">
-                                                        <Button className="rounded-3xl text-[1vw] cursor-pointer" variant={'secondary'} onClick={() => {setRemail(usx.email); requestHandler();}}>Accept</Button>
+                                                        <Button className="rounded-3xl text-[1vw] cursor-pointer" variant={'secondary'} onClick={() => {setRemail(usx.email); requestHandler();}}>Send Request</Button>
                                                     </div>
                                                 </div>
                                             </div>
