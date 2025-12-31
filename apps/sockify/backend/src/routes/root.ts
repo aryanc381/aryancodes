@@ -9,9 +9,12 @@ import acceptReqRouter from './connection/connection.accept.js';
 import retrieveRouter from './connection/connection.get.js';
 import fetchAllRouter from './connection/connection.fetch-all.js';
 
+import fetchAcceptedRouter from './chat/chat.retrieve.js';
+
 const router = express.Router();
 
 router.use('/auth', signupRouter, loginRouter, autoLoginRouter);
 router.use('/connect', sendReqRouter, acceptReqRouter, retrieveRouter, fetchAllRouter);
+router.use('/chat', fetchAcceptedRouter);
 
 export default router;

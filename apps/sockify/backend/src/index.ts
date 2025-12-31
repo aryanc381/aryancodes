@@ -4,7 +4,7 @@ import rootRouter from './routes/root.js';
 import cookieParser from "cookie-parser";
 import http from 'http';
 import { WebSocketServer } from "ws";
-import { chat } from "./routes/chat/send.js";
+import { chat } from "./routes/chat/chat.send.js";
 
 const app = express();
 const server = http.createServer(app);
