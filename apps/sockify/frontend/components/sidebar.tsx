@@ -6,8 +6,14 @@ import { VscGear } from "react-icons/vsc";
 import { IoIosLogOut } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/lib/store/hooks";
+import { useEffect, useState } from "react";
 
 export default function Sidebar() {
+    const [conversationClickCount, setConversationClickCount] = useState(0);
+    useEffect(() => {
+    console.log("Conversations clicked");
+    }, [conversationClickCount]);
+
     const router = useRouter();
     const user_data = useAppSelector((state) => state.user); 
     return(
@@ -26,7 +32,7 @@ export default function Sidebar() {
                     <MdOutlinePeopleAlt />
                     <p className="pt-[0.5vw] pb-[0.5vw] pr-[0.5vw] pl-[0.5vw]">Connections</p>
                 </div>
-                <div className="flex cursor-pointer gap-[0.5vw] items-center w-full hover:bg-[#30302f] pt-[0.25vw] pb-[0.25vw] pl-[0.75vw] pr-[0.75vw] rounded-sm hover:text-white" onClick={() => router.push('/conversations')}>
+                <div className="flex cursor-pointer gap-[0.5vw] items-center w-full hover:bg-[#30302f] pt-[0.25vw] pb-[0.25vw] pl-[0.75vw] pr-[0.75vw] rounded-sm hover:text-white" onClick={() => {setConversationClickCount(c => c+1); router.push('/conversations')}}>
                     <LuMessageSquareMore />
                     <p className="pt-[0.5vw] pb-[0.5vw] pr-[0.5vw] pl-[0.5vw]">Your Conversations</p>
                 </div>

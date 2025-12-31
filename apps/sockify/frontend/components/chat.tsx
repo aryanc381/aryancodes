@@ -24,7 +24,7 @@ export default function Chat() {
   return (
     <div className="flex gap-[1vw] w-full h-[95vh]">
 
-      <div className="w-[20vw] bg-[#1a1a1a] rounded-sm p-[1vw] flex flex-col min-h-0">
+      <div className="flex justify-center w-[20vw] bg-[#1a1a1a] rounded-sm p-[1vw] flex flex-col min-h-0">
         <p>People</p>
         <div className="flex-1 overflow-y-auto flex flex-col gap-[0.75vw] mt-[2vw] ml-[0.5vw] pr-[0.5vw] scrollbar-thin">
           {arr.map((usr, idx) => (
