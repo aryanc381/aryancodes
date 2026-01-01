@@ -25,27 +25,27 @@ router.get('/fetch-all', async (req, res) => {
     const { input } = parsed.data;
 
     const existing_users = await prisma.sOCK_USERS.findMany({
-      where: {
-        OR: [
-          {
-            email: {
-              contains: input,
-              mode: "insensitive"
-            }
-          },
-          {
-            name: {
-              contains: input,
-              mode: "insensitive"
-            }
-          }
-        ]
-      },
-      select: {
-        name: true,
-        email: true
-      },
-      take: 10
+        where: {
+            OR: [
+                {
+                    email: {
+                    contains: input,
+                    mode: "insensitive"
+                    }
+                },
+                {
+                    name: {
+                     contains: input,
+                    mode: "insensitive"
+                    }
+                }
+            ]
+        },
+        select: {
+            name: true,
+            email: true
+        },
+        take: 10
     });
 
     if (existing_users.length === 0) {
@@ -63,12 +63,11 @@ router.get('/fetch-all', async (req, res) => {
 
   } catch (err) {
     console.error(err);
-    return res.status(500).json({
+    return res.json({
       status: 500,
       msg: 'Internal Server Error.'
     });
   }
 });
-
 
 export default router;
