@@ -13,12 +13,25 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { MagicCard } from "@/components/ui/magic-card"
+import dynamic from "next/dynamic"
+
+const MagicCard = dynamic(
+  () => import("@/components/ui/magic-card").then(mod => ({ default: mod.MagicCard })),
+  { ssr: false }
+)
 import Link from "next/link"
+import { useState } from "react"
+import { loginHandler } from "@/lib/functions"
+import { toast } from "sonner"
 
 
 export default function() {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
   return (
     <div className="">
 
@@ -34,24 +47,24 @@ export default function() {
             <MagicCard gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"} className="p-0">
                 <CardHeader className="border-border border-b p-4 [.border-b]:pb-4">
                 <CardTitle>Login</CardTitle>
-                <CardDescription>Enter your creds to track your habits</CardDescription>
+                <CardDescription>Welcome back to observing where you're headed.</CardDescription>
                 </CardHeader>
                 <CardContent className="p-4">
                 <form>
                     <div className="grid gap-4">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="aryan@gmail.com" />
+                        <Input value={email} onChange={(e) => {setEmail(e.target.value)}} id="email" type="email" placeholder="aryan@gmail.com" />
                     </div>
                     <div className="grid gap-2">
                         <Label htmlFor="password">Password</Label>
-                        <Input id="password" type="password" placeholder="************" />
+                        <Input value={password} onChange={(e) => {setPassword(e.target.value)}} id="password" type="password" placeholder="************" />
                     </div>
                     </div>
                 </form>
                 </CardContent>
                 <CardFooter className="border-border border-t p-4 [.border-t]:pt-4">
-                <Button className="w-full">Sign In</Button>
+                <Button type="button" className="w-full" onClick={async() => {const response = await loginHandler(email, password); toast.success(response.msg)}}>Login</Button>
                 </CardFooter>
             </MagicCard>
             </Card>
