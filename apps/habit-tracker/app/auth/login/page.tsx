@@ -14,42 +14,49 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { MagicCard } from "@/components/ui/magic-card"
+import Link from "next/link"
 
 
 export default function() {
   const { theme } = useTheme()
   return (
-    <div className="flex justify-center items-center w-[100vw] h-[100vh]">
-        <Card className="w-full max-w-sm border-none p-0 shadow-none">
-        <MagicCard
-            gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-            className="p-0"
-        >
-            <CardHeader className="border-border border-b p-4 [.border-b]:pb-4">
-            <CardTitle>Login</CardTitle>
-            <CardDescription>
-                Enter your creds to track your habits
-            </CardDescription>
-            </CardHeader>
-            <CardContent className="p-4">
-            <form>
-                <div className="grid gap-4">
-                <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="aryan@gmail.com" />
-                </div>
-                <div className="grid gap-2">
-                    <Label htmlFor="password">Password</Label>
-                    <Input id="password" type="password" placeholder="************" />
-                </div>
-                </div>
-            </form>
-            </CardContent>
-            <CardFooter className="border-border border-t p-4 [.border-t]:pt-4">
-            <Button className="w-full">Sign In</Button>
-            </CardFooter>
-        </MagicCard>
-        </Card>
+    <div className="">
+
+        <div className="absolute top-[1vw] end-[1vw]">
+        <Button variant={'link'} className="rounded-[0.1vw] cursor-pointer"><Link href={'/'}>home</Link></Button>
+        <Button variant={'link'} className="rounded-[0.1vw] cursor-pointer"><Link href={'/auth/signup'}>signup</Link></Button>
+        <Button variant={'link'} className="rounded-[0.1vw] cursor-pointer"><Link href={'/auth/login'}>login</Link></Button>
+        </div>
+
+        <div className="flex justify-center items-center w-[100vw] h-[100vh]">
+            
+            <Card className="w-full max-w-sm border-none p-0 shadow-none">
+            <MagicCard gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"} className="p-0">
+                <CardHeader className="border-border border-b p-4 [.border-b]:pb-4">
+                <CardTitle>Login</CardTitle>
+                <CardDescription>Enter your creds to track your habits</CardDescription>
+                </CardHeader>
+                <CardContent className="p-4">
+                <form>
+                    <div className="grid gap-4">
+                    <div className="grid gap-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input id="email" type="email" placeholder="aryan@gmail.com" />
+                    </div>
+                    <div className="grid gap-2">
+                        <Label htmlFor="password">Password</Label>
+                        <Input id="password" type="password" placeholder="************" />
+                    </div>
+                    </div>
+                </form>
+                </CardContent>
+                <CardFooter className="border-border border-t p-4 [.border-t]:pt-4">
+                <Button className="w-full">Sign In</Button>
+                </CardFooter>
+            </MagicCard>
+            </Card>
+        </div>
     </div>
+    
   )
 }
